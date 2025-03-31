@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Baloo_2 } from "next/font/google";
+import { RoleProvider } from '../context/RoleContext';
 
 const baloo2 = Baloo_2({
   subsets: ["latin"],
@@ -7,9 +8,11 @@ const baloo2 = Baloo_2({
 });
 
 export default function App({ Component, pageProps }) {
-  return(
-    <main className={baloo2.className}>
-      <Component {...pageProps} />
-    </main>
+  return (
+    <RoleProvider>
+      <main className={baloo2.className}>
+        <Component {...pageProps} />
+      </main>
+    </RoleProvider>
   );
 }
